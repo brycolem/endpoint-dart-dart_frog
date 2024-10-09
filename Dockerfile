@@ -13,6 +13,7 @@ RUN dart_frog build
 RUN dart compile exe build/bin/server.dart -o bin/server
 
 FROM alpine:latest
+RUN apk update && apk add curl
 COPY --from=build /runtime/ /
 COPY --from=build /app/bin/server /app/bin/
 
