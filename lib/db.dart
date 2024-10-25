@@ -6,7 +6,7 @@ class Database {
 
   Database() {
     _connection = PostgreSQLConnection(
-      Platform.environment['PG_HOST'] ?? 'postgres_bench',
+      Platform.environment['PG_HOST'] ?? 'localhost',
       int.parse(Platform.environment['PG_PORT'] ?? '5432'),
       Platform.environment['DATABASE'] ?? 'your_database',
       username:

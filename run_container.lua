@@ -27,8 +27,8 @@ end
 
 -- Run the container
 local run_command = string.format(
-    "podman run -d --network bench-network -p 8001:8001 " ..
-    "-e DATABASE=%q -e DB_USER=%q -e DB_PWD=%q -e PORT=8001 " ..
+    "podman run -d --network=host -p 8001:8001 " ..
+    "--ulimit nofile=65536:65536 -e DATABASE=%q -e DB_USER=%q -e DB_PWD=%q -e PORT=8001 " ..
     "--replace --name dart-dart_frog dart-dart_frog:latest",
     DATABASE, DB_USER, DB_PWD
 )
